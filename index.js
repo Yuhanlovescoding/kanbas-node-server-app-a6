@@ -3,11 +3,11 @@ import Hello from "./Hello.js"
 import Lab5 from "./Lab5/index.js";
 import cors from "cors";
 import UserRoutes from "./Kanbas/Users/routes.js";
+import CourseRoutes from "./Kanbas/Courses/routes.js";
 import session from "express-session";
 import "dotenv/config";
 
 const app = express()
-Hello(app);
 app.use(
     cors({
         credentials: true,
@@ -30,6 +30,12 @@ if (process.env.NODE_ENV !== "development") {
 app.use(session(sessionOptions));
    
 app.use(express.json());
+
+Hello(app);
 Lab5(app);
 UserRoutes(app);
-app.listen(4000)
+CourseRoutes(app);
+const port = process.env.PORT || 4000;
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
