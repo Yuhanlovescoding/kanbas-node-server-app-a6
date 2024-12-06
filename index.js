@@ -15,7 +15,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:3000", 
-  "https://kanbas-react-web-app-cs5610-fall24-a6.netlify.app"
+  "https://kanbas-react-web-app-cs5610-fall24-a6.netlify.app",
 ];
 
 
